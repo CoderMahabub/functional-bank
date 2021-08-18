@@ -5,16 +5,23 @@
 const first = doubleIt(3);
 const second = doubleIt(2); */
 
-function getInputValue() {
-    const depositInput = document.getElementById('deposit-input');
+/* function getInputValue(inputId) {
+    const depositInput = document.getElementById(inputId);
     const depositAmountText = depositInput.value;
     const depositAmount = parseFloat(depositAmountText);
     //clear input field
     depositInput.value = '';
     return depositAmount;
+} */
+
+function getInputValue(inputId) {
+    const inputField = document.getElementById(inputId);
+    const amountText = inputField.value;
+    const amount = parseFloat(amountText);
+    //clear input field
+    inputField.value = '';
+    return amount;
 }
-
-
 
 
 //Handle Deposit Money
@@ -23,7 +30,7 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     /* const depositInput = document.getElementById('deposit-input');
     const depositAmountText = depositInput.value;
     const depositAmount = parseFloat(depositAmountText); */
-    const depositAmount = getInputValue();
+    const depositAmount = getInputValue('deposit-input');
 
 
     //get current deposit
@@ -43,9 +50,10 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 //Handle Withdraw Money
 document.getElementById('withdraw-button').addEventListener('click', function () {
 
-    const withdrawInput = document.getElementById('withdraw-input');
+    /* const withdrawInput = document.getElementById('withdraw-input');
     const withdrawAmountText = withdrawInput.value;
-    const withdrawAmount = parseFloat(withdrawAmountText);
+    const withdrawAmount = parseFloat(withdrawAmountText); */
+    const withdrawAmount = getInputValue('withdraw-input');
 
 
     //get withdraw Total 
@@ -59,7 +67,4 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceTotal = parseFloat(balanceTotalText);
     balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
-
-    //clear input field
-    withdrawInput.value = '';
 });
